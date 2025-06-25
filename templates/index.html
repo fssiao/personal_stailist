@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Personal StAIlist</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Personal StAIlist" />
+	<meta name="author" content="Antigua" />
+	<meta property="og:title" content="darkmatter" />
+  	<meta property="og:description" content="" />
+  	<meta property="og:type" content="website, machine learning, project" />
+  	<meta property="og:image" content="{{ url_for('static',filename='images/rick.gif') }}" />
+  	<meta property="og:site_name" content=skinclassinator />
+  	<meta property="og:url" content="https://antiguadominic.com/" />
+	<!-- Stylesheets -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;400&display=swap" rel="stylesheet">
+	<!-- Scripts -->
+	<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap.bundle.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/main.js') }}"></script>
+	<script src="https://kit.fontawesome.com/1f4f02a0a7.js" crossorigin="anonymous"></script> 
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-success navbar-expand-lg fixed-top px-5">
+	    <a class="navbar-brand" href="/">
+	        <h3>Personal StAIlist</h3>
+	    </a>
+    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+    	</button>
+    	<div class="collapse navbar-collapse d-xl-flex justify-content-xl-end" id="navbar-list-2">
+       		<ul class="navbar-nav">
+	            <li class="nav-item mx-4">
+					<a href="#" class="section-link text-uppercase small nav-link active text-center">home</a>
+				</li>
+				<li class="nav-item mx-4">
+					<a href="#" class="section-link text-uppercase small nav-link text-center">motivation</a>
+				</li>
+				<li class="nav-item mx-4">
+					<a href="#" class="section-link text-uppercase small nav-link text-center">project</a>
+				</li>
+        	</ul>
+    	</div>
+	</nav>
+	<!---->
+	<section id="home" class="my-auto mx-auto">
+		<div class="container h-100">
+			<div class="row align-items-center h-100 ">
+				<div class="col-12 mx-auto text-center">
+					<img src="{{ url_for('static',filename='images/media.png') }}" width="180" height="180">
+					<h1 class="display-3 font-weight-bolder intro-text text-warning mt-3 mb-header">What is Personal StAIlist?</h1>
+					<p class="text-white h5 mb-headerdesc">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi risus tortor, mollis at velit et, ultricies rutrum metus. Fusce tincidunt efficitur libero non aliquet. Integer id augue ut est mattis imperdiet. Integer viverra ex quis cursus vestibulum. Donec arcu nisl, ultricies eget consectetur ac, feugiat et risus. In efficitur lacinia dolor ac tincidunt. Nullam tellus orci, commodo eu augue in, tempor interdum nulla. Phasellus fermentum sed lacus ut aliquam. Fusce aliquam odio nec leo pellentesque, id tempus lorem varius. Suspendisse cursus pretium scelerisque. Praesent tincidunt, neque sit amet aliquam mattis, risus ligula efficitur diam, et tempor odio nisi ac tortor. Sed eu dolor convallis, ultricies magna non, sagittis augue. Praesent aliquam semper ligula, eu viverra diam bibendum a. Vivamus ut dictum nulla. Sed porta pulvinar tincidunt. Nulla auctor ipsum feugiat, auctor tellus et, efficitur elit.diseases.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="motivation" class="mb-5 py-5">
+		<div class="container">
+			<h2 class="text-center text-uppercase">Motivation</h2>
+			<div class="row d-flex justify-content-center mt-5">
+				<div class="col-lg-3 col-sm-12 text-center p-5 shadow-lg mr-lg-5 mb-3">
+					<img class="mb-3" src="{{ url_for('static',filename='images/cancer.png') }}" width="100">
+					<h3>Style</h3>
+					<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi risus tortor, mollis at velit et, ultricies rutrum metus. Fusce tincidunt efficitur libero non aliquet. Integer id augue ut est mattis imperdiet. Integer viverra ex quis cursus vestibulum. Donec arcu nisl, ultricies eget consectetur ac, feugiat et risus. In efficitur lacinia dolor ac tincidunt. Nullam tellus orci, commodo eu augue in, tempor interdum nulla. Phasellus fermentum sed lacus ut aliquam. Fusce aliquam odio nec leo pellentesque, id tempus lorem varius. Suspendisse cursus pretium scelerisque. Praesent tincidunt, neque sit amet aliquam mattis, risus ligula efficitur diam, et tempor odio nisi ac tortor. Sed eu dolor convallis, ultricies magna non, sagittis augue. Praesent aliquam semper ligula, eu viverra diam bibendum a. Vivamus ut dictum nulla. Sed porta pulvinar tincidunt. Nulla auctor ipsum feugiat, auctor tellus et, efficitur elit.</p>
+				</div>
+				<div class="col-lg-3 col-sm-12 text-center p-5 shadow-lg mr-lg-5 mb-3">
+					<img class="mb-3" src="{{ url_for('static',filename='images/pie-chart.png') }}" width="100">
+					<h3>Statistics</h3>
+					<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi risus tortor, mollis at velit et, ultricies rutrum metus. Fusce tincidunt efficitur libero non aliquet. Integer id augue ut est mattis imperdiet. Integer viverra ex quis cursus vestibulum. Donec arcu nisl, ultricies eget consectetur ac, feugiat et risus. In efficitur lacinia dolor ac tincidunt. Nullam tellus orci, commodo eu augue in, tempor interdum nulla. Phasellus fermentum sed lacus ut aliquam. Fusce aliquam odio nec leo pellentesque, id tempus lorem varius. Suspendisse cursus pretium scelerisque. Praesent tincidunt, neque sit amet aliquam mattis, risus ligula efficitur diam, et tempor odio nisi ac tortor. Sed eu dolor convallis, ultricies magna non, sagittis augue. Praesent aliquam semper ligula, eu viverra diam bibendum a. Vivamus ut dictum nulla. Sed porta pulvinar tincidunt. Nulla auctor ipsum feugiat, auctor tellus et, efficitur elit.</p>
+				</div>
+				<div class="col-lg-3 col-sm-12 text-center p-5 shadow-lg mr-lg-5 mb-3">
+					<img class="mb-3" src="{{ url_for('static',filename='images/survival.png') }}" width="100">
+					<h3>Hakot Tanders</h3>
+					<p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi risus tortor, mollis at velit et, ultricies rutrum metus. Fusce tincidunt efficitur libero non aliquet. Integer id augue ut est mattis imperdiet. Integer viverra ex quis cursus vestibulum. Donec arcu nisl, ultricies eget consectetur ac, feugiat et risus. In efficitur lacinia dolor ac tincidunt. Nullam tellus orci, commodo eu augue in, tempor interdum nulla. Phasellus fermentum sed lacus ut aliquam. Fusce aliquam odio nec leo pellentesque, id tempus lorem varius. Suspendisse cursus pretium scelerisque. Praesent tincidunt, neque sit amet aliquam mattis, risus ligula efficitur diam, et tempor odio nisi ac tortor. Sed eu dolor convallis, ultricies magna non, sagittis augue. Praesent aliquam semper ligula, eu viverra diam bibendum a. Vivamus ut dictum nulla. Sed porta pulvinar tincidunt. Nulla auctor ipsum feugiat, auctor tellus et, efficitur elit.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="project" class="bg-danger mb-5 py-5">
+		{% if scroll %}
+		<script>
+          document.location.hash = '#' + '{{ scroll }}';
+		</script>
+		{% endif %}
+		<div class="container p-5 text-white">
+			<h2 class="text-center text-uppercase">Chat with the Bot</h2>
+			<div class="">
+				<div class="container mt-5 p-2">
+					<div id="message-box">
+						<div class="d-flex justify-content-end mb-4">
+							<div class="bg-success rounded py-2 px-3">
+								Jether?
+							</div>
+						</div>
+						<div class="d-flex justify-content-start my-2">
+							<div class="bg-warning rounded py-2 px-3">
+								"Jether" could refer to several different people, as it's a name that appears in various contexts. Here are the most common references: **Biblical figures:** - **Jether the Ishmaelite** - Father of Amasa, who was a military commander under King David and later Absalom - **Jether son of Gideon** - Gideon's eldest son mentioned in the Book of Judges - **Other biblical Jethers** - The name appears several times in Old Testament genealogies **Modern context:** Without more specific information, it's difficult to know which Jether you're asking about. If you're referring to a contemporary person, could you provide more context? For example: - Are you asking about someone specific you know? - Is this related to a particular field, location, or context? - Are you looking for information about the biblical character specifically? Could you clarify which Jether you're interested in learning about?
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12 my-auto">
+						<div class="input-group">
+							<input id="message-input" type="text" class="col-sm-10 mt-2 form-control" placeholder="Ask about style">
+							<input id="send-btn" type="submit" value="Send" class="col-sm-2 mt-2 btn btn-info">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="page-footer text-white bg-dark p-4">
+		<div class="footer-copyright text-center py-1">Copyright 2025 RCBC Group 5 | All Rights Reserved | </div>
+	</footer>
+</body>
+</html>
