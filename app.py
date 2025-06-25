@@ -2,9 +2,6 @@ import os
 from flask import Flask, request, render_template, redirect, url_for
 from core import Model
 
-# Constant Model Configuration
-UPLOAD_FOLDER = 'uploads'
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 # Flask Initialization and Configuration
 app = Flask(__name__)
