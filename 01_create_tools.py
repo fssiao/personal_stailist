@@ -5,7 +5,7 @@
 # COMMAND ----------
 
 # DBTITLE 1,Library Installs
-# MAGIC %pip install -qqqq -U -r requirements.txt
+# MAGIC %pip install --q -U -r requirements.txt
 # MAGIC dbutils.library.restartPython()
 
 # COMMAND ----------
@@ -25,6 +25,7 @@ import itertools
 
 # DBTITLE 1,Parameter Configs
 w = WorkspaceClient()
+client = DatabricksFunctionClient()
 user_email = w.current_user.me().display_name
 username = user_email.split("@")[0]
 
@@ -49,28 +50,267 @@ tbl_src = f"{catalog_name}.{schema_name}.table"
 
 # COMMAND ----------
 
-# func_name = 'sample_schema_function'
-# func_comment = 'sample_comment'
+func_name = 'get_all_combinations'
+func_comment = 'Get all possible combinations regardless of gender and occassion'
 
-# spark.sql(f"""
-#     CREATE OR REPLACE FUNCTION 
-#     IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
-#     RETURNS TABLE(
-#         policy  STRING,
-#         policy_details STRING,
-#         last_updated DATE)
-#     COMMENT '{func_comment}'
-#     LANGUAGE SQL
-#     RETURN (
-#         SELECT     
-#             policy,
-#             policy_details,
-#             last_updated
-#         FROM agents_lab.product.policies
-#         LIMIT 1
-#     )
-# """)
-# #  ---- CAN ALSO RETURN STRING
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION 
+    IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
+    RETURNS TABLE(
+        top  STRING,
+        bottom STRING,
+        footwear STRING,
+        accessory STRING
+    )
+    COMMENT '{func_comment}'
+    LANGUAGE SQL
+    RETURN (
+        WITH wardrobe AS (
+            SELECT * FROM dsag_dev_catalog.group_5.wardrobe_sample 
+        ),
+
+        part_top AS (
+            SELECT item_desc AS top FROM wardrobe 
+            WHERE category = 'Top'
+        ),
+
+        part_bottom AS (
+            SELECT item_desc AS bottom FROM wardrobe 
+            WHERE category = 'Bottom'
+        ),
+
+        part_footwear AS (
+            SELECT item_desc AS footwear FROM wardrobe 
+            WHERE category = 'Footwear'
+        ),
+
+        part_accessory AS (
+            SELECT item_desc AS accessory FROM wardrobe 
+            WHERE category = 'Accessories'
+        )
+
+        SELECT DISTINCT
+        *
+        FROM part_top AS a
+        FULL OUTER JOIN part_bottom AS b
+        FULL OUTER JOIN part_footwear AS c
+        FULL OUTER JOIN part_accessory AS d
+        ORDER BY rand()
+        LIMIT 5
+    )
+""")
+
+# COMMAND ----------
+
+func_name = 'get_men_formal_combinations'
+func_comment = 'Get all possible formal combinations for men'
+
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION 
+    IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
+    RETURNS TABLE(
+        top  STRING,
+        bottom STRING,
+        footwear STRING,
+        accessory STRING
+    )
+    COMMENT '{func_comment}'
+    LANGUAGE SQL
+    RETURN (
+        WITH wardrobe AS (
+            SELECT * FROM dsag_dev_catalog.group_5.wardrobe_sample 
+            WHERE occassion = 'Formal' AND gender IN ('Men', 'Unisex')
+        ),
+
+        part_top AS (
+            SELECT item_desc AS top FROM wardrobe 
+            WHERE category = 'Top'
+        ),
+
+        part_bottom AS (
+            SELECT item_desc AS bottom FROM wardrobe 
+            WHERE category = 'Bottom'
+        ),
+
+        part_footwear AS (
+            SELECT item_desc AS footwear FROM wardrobe 
+            WHERE category = 'Footwear'
+        ),
+
+        part_accessory AS (
+            SELECT item_desc AS accessory FROM wardrobe 
+            WHERE category = 'Accessories'
+        )
+
+        SELECT DISTINCT
+        *
+        FROM part_top AS a
+        FULL OUTER JOIN part_bottom AS b
+        FULL OUTER JOIN part_footwear AS c
+        FULL OUTER JOIN part_accessory AS d
+        ORDER BY rand()
+        LIMIT 5
+    )
+""")
+
+# COMMAND ----------
+
+func_name = 'get_men_casual_combinations'
+func_comment = 'Get all possible casual combinations for men'
+
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION 
+    IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
+    RETURNS TABLE(
+        top  STRING,
+        bottom STRING,
+        footwear STRING,
+        accessory STRING
+    )
+    COMMENT '{func_comment}'
+    LANGUAGE SQL
+    RETURN (
+        WITH wardrobe AS (
+            SELECT * FROM dsag_dev_catalog.group_5.wardrobe_sample 
+            WHERE occassion = 'Casual' AND gender IN ('Men', 'Unisex')
+        ),
+
+        part_top AS (
+            SELECT item_desc AS top FROM wardrobe 
+            WHERE category = 'Top'
+        ),
+
+        part_bottom AS (
+            SELECT item_desc AS bottom FROM wardrobe 
+            WHERE category = 'Bottom'
+        ),
+
+        part_footwear AS (
+            SELECT item_desc AS footwear FROM wardrobe 
+            WHERE category = 'Footwear'
+        ),
+
+        part_accessory AS (
+            SELECT item_desc AS accessory FROM wardrobe 
+            WHERE category = 'Accessories'
+        )
+
+        SELECT DISTINCT
+        *
+        FROM part_top AS a
+        FULL OUTER JOIN part_bottom AS b
+        FULL OUTER JOIN part_footwear AS c
+        FULL OUTER JOIN part_accessory AS d
+        ORDER BY rand()
+        LIMIT 5
+    )
+""")
+
+# COMMAND ----------
+
+func_name = 'get_women_formal_combinations'
+func_comment = 'Get all possible formal combinations for women'
+
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION 
+    IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
+    RETURNS TABLE(
+        top  STRING,
+        bottom STRING,
+        footwear STRING,
+        accessory STRING
+    )
+    COMMENT '{func_comment}'
+    LANGUAGE SQL
+    RETURN (
+        WITH wardrobe AS (
+            SELECT * FROM dsag_dev_catalog.group_5.wardrobe_sample 
+            WHERE occassion = 'Formal' AND gender IN ('Women', 'Unisex')
+        ),
+
+        part_top AS (
+            SELECT item_desc AS top FROM wardrobe 
+            WHERE category = 'Top'
+        ),
+
+        part_bottom AS (
+            SELECT item_desc AS bottom FROM wardrobe 
+            WHERE category = 'Bottom'
+        ),
+
+        part_footwear AS (
+            SELECT item_desc AS footwear FROM wardrobe 
+            WHERE category = 'Footwear'
+        ),
+
+        part_accessory AS (
+            SELECT item_desc AS accessory FROM wardrobe 
+            WHERE category = 'Accessories'
+        )
+
+        SELECT DISTINCT
+        *
+        FROM part_top AS a
+        FULL OUTER JOIN part_bottom AS b
+        FULL OUTER JOIN part_footwear AS c
+        FULL OUTER JOIN part_accessory AS d
+        ORDER BY rand()
+        LIMIT 5
+    )
+""")
+
+# COMMAND ----------
+
+func_name = 'get_women_casual_combinations'
+func_comment = 'Get all possible casual combinations for women'
+
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION 
+    IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
+    RETURNS TABLE(
+        top  STRING,
+        bottom STRING,
+        footwear STRING,
+        accessory STRING
+    )
+    COMMENT '{func_comment}'
+    LANGUAGE SQL
+    RETURN (
+        WITH wardrobe AS (
+            SELECT * FROM dsag_dev_catalog.group_5.wardrobe_sample 
+            WHERE occassion = 'Casual' AND gender IN ('Women', 'Unisex')
+        ),
+
+        part_top AS (
+            SELECT item_desc AS top FROM wardrobe 
+            WHERE category = 'Top'
+        ),
+
+        part_bottom AS (
+            SELECT item_desc AS bottom FROM wardrobe 
+            WHERE category = 'Bottom'
+        ),
+
+        part_footwear AS (
+            SELECT item_desc AS footwear FROM wardrobe 
+            WHERE category = 'Footwear'
+        ),
+
+        part_accessory AS (
+            SELECT item_desc AS accessory FROM wardrobe 
+            WHERE category = 'Accessories'
+        )
+
+        SELECT DISTINCT
+        *
+        FROM part_top AS a
+        FULL OUTER JOIN part_bottom AS b
+        FULL OUTER JOIN part_footwear AS c
+        FULL OUTER JOIN part_accessory AS d
+        ORDER BY rand()
+        LIMIT 5
+    )
+""")
 
 # COMMAND ----------
 
@@ -79,65 +319,128 @@ tbl_src = f"{catalog_name}.{schema_name}.table"
 
 # COMMAND ----------
 
-def get_combination(df):
-    categories = ['top', 'bottom', 'footwear']#, 'accessories']
+# def get_combination() -> str:
+#     """
+#     Returns all possible combinations from a given dataframe.
 
-    bottoms = df[df['category']=='Bottom']['clothing_id'].tolist()
-    tops = df[df['category']=='Top']['clothing_id'].tolist()
-    footwears = df[df['category']=='Footwear']['clothing_id'].tolist()
-    accessories = df[df['category']=='Accessories']['clothing_id'].tolist()
+#     Returns:
+#     df_combi (pd.DataFrame): the dataframe containing all combinations.
+#     """
 
-    combi_list = list(itertools.product(tops, bottoms, footwears))
+#     df = spark.table('dsag_dev_catalog.group_5.wardrobe_sample').toPandas()
 
-    df_combi = pd.DataFrame(combi_list, columns=categories)
-    df_combi['combination_id'] = df_combi[categories].apply(lambda row: ''.join(row.values.astype(str)), axis=1)
+#     categories = ['top', 'bottom', 'footwear', 'accessories']
 
-    for cat in categories:
-        df_combi[f'{cat}'] = df_combi[cat].astype(str).map(df.set_index('clothing_id')['item_desc'])
+#     bottoms = df[df['category']=='Bottom']['clothing_id'].tolist()
+#     tops = df[df['category']=='Top']['clothing_id'].tolist()
+#     footwears = df[df['category']=='Footwear']['clothing_id'].tolist()
+#     accessories = df[df['category']=='Accessories']['clothing_id'].tolist()
 
-    return df_combi
+#     combi_list = list(itertools.product(tops, bottoms, footwears, accessories))
 
-def get_men_formal_combinations(df):
-    df_filtered = df[(df['occassion']=='Formal') & (df['gender'].isin(['Men', 'Unisex']))]
-    df_combi = get_combination(df_filtered)
-    return df_combi
+#     df_combi = pd.DataFrame(combi_list, columns=categories)
+#     df_combi['combination_id'] = df_combi[categories].apply(lambda row: ''.join(row.values.astype(str)), axis=1)
 
-def get_women_formal_combinations(df):
-    df_filtered = df[(df['occassion']=='Formal') & (df['gender'].isin(['Women', 'Unisex']))]
-    df_combi = get_combination(df_filtered)
-    return df_combi
+#     for cat in categories:
+#         df_combi[f'{cat}'] = df_combi[cat].astype(str).map(df.set_index('clothing_id')['item_desc'])
 
-def get_men_casual_combinations(df):
-    df_filtered = df[(df['occassion']=='Casual') & (df['gender'].isin(['Men', 'Unisex']))]
-    df_combi = get_combination(df_filtered)
-    return df_combi
+#     return df_combi
 
-def get_women_casual_combinations(df):
-    df_filtered = df[(df['occassion']=='Casual') & (df['gender'].isin(['Women', 'Unisex']))]
-    df_combi = get_combination(df_filtered)
-    return df_combi
+# def get_men_formal_combinations() -> str:
+#     """
+#     Returns men and unisex formal combinations from a given dataframe.
+
+#     Returns:
+#     df_combi (pd.DataFrame): the dataframe containing all combinations.
+#     """
+#     df = spark.table('dsag_dev_catalog.group_5.wardrobe_sample').toPandas()
+#     df_filtered = df[(df['occassion']=='Formal') & (df['gender'].isin(['Men', 'Unisex']))]
+#     df_combi = get_combination()
+#     return df_combi
+
+# def get_women_formal_combinations() -> str:
+#     """
+#     Returns women and unisex formal combinations from a given dataframe.
+
+#     Returns:
+#     df_combi (pd.DataFrame): the dataframe containing all combinations.
+#     """
+#     df = spark.table('dsag_dev_catalog.group_5.wardrobe_sample').toPandas()
+#     df_filtered = df[(df['occassion']=='Formal') & (df['gender'].isin(['Women', 'Unisex']))]
+#     df_combi = get_combination()
+#     return df_combi
+
+# def get_men_casual_combinations() -> str:
+#     """
+#     Returns men and unisex casual combinations from a given dataframe.
+
+#     Returns:
+#     df_combi (pd.DataFrame): the dataframe containing all combinations.
+#     """
+#     df = spark.table('dsag_dev_catalog.group_5.wardrobe_sample').toPandas()
+#     df_filtered = df[(df['occassion']=='Casual') & (df['gender'].isin(['Men', 'Unisex']))]
+#     df_combi = get_combination()
+#     return df_combi
+
+# def get_women_casual_combinations() -> str:
+#     """
+#     Returns women and unisex casual combinations from a given dataframe.
+
+#     Returns:
+#     df_combi (pd.DataFrame): the dataframe containing all combinations.
+#     """
+#     df = spark.table('dsag_dev_catalog.group_5.wardrobe_sample').toPandas()
+#     df_filtered = df[(df['occassion']=='Casual') & (df['gender'].isin(['Women', 'Unisex']))]
+#     df_combi = get_combination()
+#     return df_combi
 
 # COMMAND ----------
 
-df = pd.read_csv('sample_data_2.csv', dtype={'clothing_id':str})
-df.replace('Unspecified', '', inplace=True)
-df.drop(['product_display_name', 'age', 'purchase_date'], axis=1, inplace=True)
-df.fillna('', inplace=True)
-df['clothing_id'] = df['clothing_id'].str.pad(3, fillchar='0')
-df['item_desc'] = df[['pattern', 'subcolor', 'brand_name', 'subcategory']].apply(lambda row: ' '.join(row.values.astype(str)), axis=1)
-df.head(10)
+# df = pd.read_csv('wardrobe_sample.csv', dtype={'clothing_id':str})
+# df.replace('Unspecified', '', inplace=True)
+# df.drop(['age', 'purchase_date'], axis=1, inplace=True)
+# df.fillna('', inplace=True)
+# df['clothing_id'] = df['clothing_id'].str.pad(3, fillchar='0')
+# df['item_desc'] = df[['pattern', 'subcolor', 'brand_name', 'subcategory']].apply(lambda row: ' '.join(row.values.astype(str)), axis=1)
+# df.head(10)
 
 # COMMAND ----------
 
-get_combination(df)
+# sparkdf = spark.createDataFrame(df)
+# sparkdf.createOrReplaceTempView('sparkdf')
+
+# spark.sql(f"""
+#     CREATE OR REPLACE TABLE
+#     dsag_dev_catalog.group_5.wardrobe_sample
+#     AS
+#     SELECT * FROM sparkdf
+# """)
 
 # COMMAND ----------
 
-client = DatabricksFunctionClient()
+# get_combination()
 
-python_tool_uc_info = client.create_python_function(func=get_todays_date, catalog=catalog_name, schema=schema_name, replace=True)
+# COMMAND ----------
 
-print(f"Deployed Unity Catalog function name: {python_tool_uc_info.full_name}")
+# get_men_casual_combinations()
+
+# COMMAND ----------
+
+# python_tool_uc_info = client.create_python_function(func=get_combination, catalog=catalog_name, schema=schema_name, replace=True)
+# print(f"Deployed Unity Catalog function name: {python_tool_uc_info.full_name}")
+# python_tool_uc_info = client.create_python_function(func=get_men_formal_combinations, catalog=catalog_name, schema=schema_name, replace=True)
+# print(f"Deployed Unity Catalog function name: {python_tool_uc_info.full_name}")
+# python_tool_uc_info = client.create_python_function(func=get_men_casual_combinations, catalog=catalog_name, schema=schema_name, replace=True)
+# print(f"Deployed Unity Catalog function name: {python_tool_uc_info.full_name}")
+# python_tool_uc_info = client.create_python_function(func=get_women_formal_combinations, catalog=catalog_name, schema=schema_name, replace=True)
+# print(f"Deployed Unity Catalog function name: {python_tool_uc_info.full_name}")
+# python_tool_uc_info = client.create_python_function(func=get_women_casual_combinations, catalog=catalog_name, schema=schema_name, replace=True)
+# print(f"Deployed Unity Catalog function name: {python_tool_uc_info.full_name}")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Deploy AI
 
 # COMMAND ----------
 
@@ -155,12 +458,11 @@ display(HTML(html_link))
 
 # COMMAND ----------
 
-# MAGIC %md
-# MAGIC ## Front-end: Streamlit
-
-# COMMAND ----------
-
 # DBTITLE 1,Create link to AI Playground
 # Create HTML link to AI Playground
 html_link = f'<a href="https://{workspace_url}/ml/playground" target="_blank">Go to AI Playground</a>'
 display(HTML(html_link))
+
+# COMMAND ----------
+
+
