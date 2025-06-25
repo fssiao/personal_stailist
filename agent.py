@@ -32,7 +32,7 @@ set_uc_function_client(client)
 ############################################
 # Define your LLM endpoint and system prompt
 ############################################
-LLM_ENDPOINT_NAME = "databricks-claude-3-7-sonnet"
+LLM_ENDPOINT_NAME = "databricks-meta-llama-3-3-70b-instruct"
 llm = ChatDatabricks(endpoint=LLM_ENDPOINT_NAME)
 
 system_prompt = "Use tools to retrieve all information needed."
@@ -46,7 +46,7 @@ system_prompt = "Use tools to retrieve all information needed."
 tools = []
 
 # You can use UDFs in Unity Catalog as agent tools
-uc_tool_names = ["agents_lab.product.*"]
+uc_tool_names = ["dsag_dev_catalog.group_5.*"]
 uc_toolkit = UCFunctionToolkit(function_names=uc_tool_names)
 tools.extend(uc_toolkit.tools)
 
@@ -57,14 +57,14 @@ tools.extend(uc_toolkit.tools)
 
 # Add in a tool to retrieve from our Vector Search Index
 # num_results is an important input as it dictates how many results are returned
-retriever_tool = VectorSearchRetrieverTool(
-  index_name="agents_lab.product.product_docs_index",
-  tool_name="search_product_docs",
-  tool_description="Use this tool to search for product documentation.",
-  num_results=5
-)
+# retriever_tool = VectorSearchRetrieverTool(
+#   index_name="dsag_dev_catalog.group_5.wardrobe_policies",
+#   tool_name="get_women_formal_combinations",
+#   tool_description="Use this tool to get women wear policies.",
+#   num_results=5
+# )
 
-tools.append(retriever_tool)
+# tools.append(retriever_tool)
 
 
 #####################

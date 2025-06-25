@@ -96,9 +96,13 @@ spark.sql(f"""
         FULL OUTER JOIN part_footwear AS c
         FULL OUTER JOIN part_accessory AS d
         ORDER BY rand()
-        LIMIT 5
     )
 """)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC #### Functions: Men
 
 # COMMAND ----------
 
@@ -149,7 +153,7 @@ spark.sql(f"""
         FULL OUTER JOIN part_footwear AS c
         FULL OUTER JOIN part_accessory AS d
         ORDER BY rand()
-        LIMIT 5
+        -- LIMIT 10
     )
 """)
 
@@ -202,9 +206,67 @@ spark.sql(f"""
         FULL OUTER JOIN part_footwear AS c
         FULL OUTER JOIN part_accessory AS d
         ORDER BY rand()
-        LIMIT 5
+        -- LIMIT 10
     )
 """)
+
+# COMMAND ----------
+
+func_name = 'get_men_all_combinations'
+func_comment = 'Get all possible combinations for men regardless of occassion'
+
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION 
+    IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
+    RETURNS TABLE(
+        top  STRING,
+        bottom STRING,
+        footwear STRING,
+        accessory STRING
+    )
+    COMMENT '{func_comment}'
+    LANGUAGE SQL
+    RETURN (
+        WITH wardrobe AS (
+            SELECT * FROM dsag_dev_catalog.group_5.wardrobe_sample 
+            WHERE gender IN ('Men', 'Unisex')
+        ),
+
+        part_top AS (
+            SELECT item_desc AS top FROM wardrobe 
+            WHERE category = 'Top'
+        ),
+
+        part_bottom AS (
+            SELECT item_desc AS bottom FROM wardrobe 
+            WHERE category = 'Bottom'
+        ),
+
+        part_footwear AS (
+            SELECT item_desc AS footwear FROM wardrobe 
+            WHERE category = 'Footwear'
+        ),
+
+        part_accessory AS (
+            SELECT item_desc AS accessory FROM wardrobe 
+            WHERE category = 'Accessories'
+        )
+
+        SELECT DISTINCT
+        *
+        FROM part_top AS a
+        FULL OUTER JOIN part_bottom AS b
+        FULL OUTER JOIN part_footwear AS c
+        FULL OUTER JOIN part_accessory AS d
+        ORDER BY rand()
+        -- LIMIT 10
+    )
+""")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC #### Functions: Women
 
 # COMMAND ----------
 
@@ -218,7 +280,8 @@ spark.sql(f"""
         top  STRING,
         bottom STRING,
         footwear STRING,
-        accessory STRING
+        accessory STRING,
+        bag STRING
     )
     COMMENT '{func_comment}'
     LANGUAGE SQL
@@ -246,16 +309,26 @@ spark.sql(f"""
         part_accessory AS (
             SELECT item_desc AS accessory FROM wardrobe 
             WHERE category = 'Accessories'
-        )
+        ),
+
+        part_bag AS (
+            SELECT item_desc AS bag FROM wardrobe 
+            WHERE category = 'Bag'
+        )     
 
         SELECT DISTINCT
-        *
+            a.top,
+            CASE WHEN CONTAINS(lower(a.top), 'dress') THEN '' ELSE b.bottom END AS bottom,
+            c.footwear,
+            d.accessory,
+            e.bag
         FROM part_top AS a
         FULL OUTER JOIN part_bottom AS b
         FULL OUTER JOIN part_footwear AS c
         FULL OUTER JOIN part_accessory AS d
+        FULL OUTER JOIN part_bag AS e
         ORDER BY rand()
-        LIMIT 5
+        -- LIMIT 10
     )
 """)
 
@@ -271,7 +344,8 @@ spark.sql(f"""
         top  STRING,
         bottom STRING,
         footwear STRING,
-        accessory STRING
+        accessory STRING,
+        bag STRING
     )
     COMMENT '{func_comment}'
     LANGUAGE SQL
@@ -299,16 +373,90 @@ spark.sql(f"""
         part_accessory AS (
             SELECT item_desc AS accessory FROM wardrobe 
             WHERE category = 'Accessories'
-        )
+        ),
+
+        part_bag AS (
+            SELECT item_desc AS bag FROM wardrobe 
+            WHERE category = 'Bag'
+        )     
 
         SELECT DISTINCT
-        *
+            a.top,
+            CASE WHEN CONTAINS(lower(a.top), 'dress') THEN '' ELSE b.bottom END AS bottom,
+            c.footwear,
+            d.accessory,
+            e.bag
         FROM part_top AS a
         FULL OUTER JOIN part_bottom AS b
         FULL OUTER JOIN part_footwear AS c
         FULL OUTER JOIN part_accessory AS d
+        FULL OUTER JOIN part_bag AS e
         ORDER BY rand()
-        LIMIT 5
+        -- LIMIT 10
+    )
+""")
+
+# COMMAND ----------
+
+func_name = 'get_women_all_combinations'
+func_comment = 'Get all possible combinations for women regardless of occassion'
+
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION 
+    IDENTIFIER('{catalog_name}.{schema_name}.{func_name}')()
+    RETURNS TABLE(
+        top  STRING,
+        bottom STRING,
+        footwear STRING,
+        accessory STRING,
+        bag STRING
+    )
+    COMMENT '{func_comment}'
+    LANGUAGE SQL
+    RETURN (
+        WITH wardrobe AS (
+            SELECT * FROM dsag_dev_catalog.group_5.wardrobe_sample 
+            WHERE gender IN ('Women', 'Unisex')
+        ),
+
+        part_top AS (
+            SELECT item_desc AS top FROM wardrobe 
+            WHERE category = 'Top'
+        ),
+
+        part_bottom AS (
+            SELECT item_desc AS bottom FROM wardrobe 
+            WHERE category = 'Bottom'
+        ),
+
+        part_footwear AS (
+            SELECT item_desc AS footwear FROM wardrobe 
+            WHERE category = 'Footwear'
+        ),
+
+        part_accessory AS (
+            SELECT item_desc AS accessory FROM wardrobe 
+            WHERE category = 'Accessories'
+        ),
+
+        part_bag AS (
+            SELECT item_desc AS bag FROM wardrobe 
+            WHERE category = 'Bag'
+        )     
+
+        SELECT DISTINCT
+            a.top,
+            CASE WHEN CONTAINS(lower(a.top), 'dress') THEN '' ELSE b.bottom END AS bottom,
+            c.footwear,
+            d.accessory,
+            e.bag
+        FROM part_top AS a
+        FULL OUTER JOIN part_bottom AS b
+        FULL OUTER JOIN part_footwear AS c
+        FULL OUTER JOIN part_accessory AS d
+        FULL OUTER JOIN part_bag AS e
+        ORDER BY rand()
+        -- LIMIT 10
     )
 """)
 
@@ -396,13 +544,13 @@ spark.sql(f"""
 
 # COMMAND ----------
 
-# df = pd.read_csv('wardrobe_sample.csv', dtype={'clothing_id':str})
+df = pd.read_csv('Data/DSAG Hackathon 2025 - Sample V1 (1).csv', dtype={'clothing_id':str})
 # df.replace('Unspecified', '', inplace=True)
-# df.drop(['age', 'purchase_date'], axis=1, inplace=True)
-# df.fillna('', inplace=True)
-# df['clothing_id'] = df['clothing_id'].str.pad(3, fillchar='0')
-# df['item_desc'] = df[['pattern', 'subcolor', 'brand_name', 'subcategory']].apply(lambda row: ' '.join(row.values.astype(str)), axis=1)
-# df.head(10)
+df.drop(['age'], axis=1, inplace=True)
+df.fillna('', inplace=True)
+df['clothing_id'] = df['clothing_id'].str.pad(3, fillchar='0')
+df['item_desc'] = df[['pattern', 'subcolor', 'brand_name', 'subcategory']].apply(lambda row: ' '.join(row.values.astype(str)), axis=1)
+df.head(10)
 
 # COMMAND ----------
 
@@ -439,6 +587,24 @@ spark.sql(f"""
 
 # COMMAND ----------
 
+# rules = pd.read_csv('Data/DSAG Hackathon 2025 - Combi Value.csv')
+# rules.columns = ['fashion_rules', 'description']
+# rules
+
+# COMMAND ----------
+
+# sparkdf = spark.createDataFrame(rules)
+# sparkdf.createOrReplaceTempView('sparkdf')
+
+# spark.sql(f"""
+#     CREATE OR REPLACE TABLE
+#     dsag_dev_catalog.group_5.wardrobe_policies
+#     AS
+#     SELECT * FROM sparkdf
+# """)
+
+# COMMAND ----------
+
 # MAGIC %md
 # MAGIC ## Deploy AI
 
@@ -449,20 +615,12 @@ workspace_url
 
 # COMMAND ----------
 
-# Retrieve the Databricks host URL
 workspace_url = spark.conf.get('spark.databricks.workspaceUrl')
-
-# Create HTML link to created functions
 html_link = f'<a href="https://{workspace_url}/explore/data/functions/{catalog_name}/{schema_name}/get_todays_date" target="_blank">Go to Unity Catalog to see Registered Functions</a>'
 display(HTML(html_link))
 
 # COMMAND ----------
 
 # DBTITLE 1,Create link to AI Playground
-# Create HTML link to AI Playground
 html_link = f'<a href="https://{workspace_url}/ml/playground" target="_blank">Go to AI Playground</a>'
 display(HTML(html_link))
-
-# COMMAND ----------
-
-
