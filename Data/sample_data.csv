@@ -1,0 +1,21 @@
+user_id,clothing_id,brand_name,age,gender,occassion,weather,category,subcategory,color,subcolor,purchase_date,material,pattern,product_display_name
+G5,1,Zara,,Unisex,Casual,Unspecified,Bottom,Denim Pants,Dark,Blue,2024-03-02,Denim,Plain,
+G5,2,Uniqlo,,Unisex,Casual,Unspecified,Bottom,Denim Pants,Light,Blue,2023-01-04,Denim,Plain,
+G5,3,Lululemon,,Women,Casual,Unspecified,Bottom,Cargo Pants,Dark,Green,,Nylon,Plain,Lululemon Dance Studio Relaxed-Fit Mid-Rise Cargo Pant
+G5,4,Love Bonito,,Women,Formal,Unspecified,Bottom,Work Pants,Dark,Black,,Polyester,Plain,Love Bonito PETITE Leggy™ Moira Super High Waist Straight Leg Pants
+G5,5,Ever New,,Women,Casual,Summer,Top,Dress,Light,White,2024-10-25,Eyelet,Floral,
+G5,6,Nike,,Women,Casual,Summer,Top,Tshirts,Dark,Blue,2025-02-10,Polyester,Plain,Nike Women Blue Polo T-shirt
+G5,7,Vans,,Unisex,Casual,Unspecified,Footwear,Casual Shoes,Dark,Black,,Unspecified,Plain,Vans Unisex Black & Grey Classic Shoes
+B1,8,Adidas,,Men,Casual,,Top,Tshirts,Light,Grey,,Unspecified,Plain,ADIDAS Men Grey Striped T-shirt
+B1,9,Clarks,,Men,Formal,Unspecified,Footwear,Leather,Dark,Black,2024-06-19,Leather,Unspecified,Clarks Men Hang Work Leather Black Formal Shoes
+B1,10,Zara,,Men,Casual,,Top,Polo Shirts,Light,Beige,2025-04-06,Cotton,Plain,Zara Men Regular fit knitted polo shirt made of a cotton blend yarn. Lapel collar with front button fastening. Short sleeves. Ribbed trims.
+B1,11,Zara,,Men,Formal,,Top,Blazer,Dark,Black,2024-12-08,Unspecified,Plain,Zara Men Relaxed fit blazer in a lightly waxed cotton fabric.
+B1,12,Zara,,Men,Formal,,Bottom,Work Pants,Dark,Black,,Linen,Plain,Zara Men100% LINEN PLEATED TROUSERS
+B1,,Zara,,Men,Casual,,Bottom,Shorts,Light,Light beige,,Linen,Plain,Zara Men 100% LINEN BERMUDA SHORTS
+G5,,Uniqlo,,Men,Casual,,Top,,,,,Cotton,Plain,
+G5,,Uniqlo,,Men,Casual,,Top,Polo,Dark,Blue,,Cotton,Stripes,
+B1,,Lacoste,,Men,Formal,,Top,Polo,Light,White,2025-01-20,Cotton,Plain,Lacoste Slim Fit Petit Piqué Shirt
+B1,,Tom Ford,,Men,Casual,,Bottom,Pants,Light,Blue,,Denim,,TOM FORD's jeans are expertly made from premium denim in a medium blue wash
+B1,,Polo Ralph Lauren,,Men,Formal,,Top,Polo,Light,Blue,,Cotton,Plain,Custom Fit Stretch Oxford Shirt
+B1,,Polo Ralph Lauren,,Men,Formal,,Top,Polo,Light,Pink,,Cotton,Plain,Custom Fit Stretch Oxford Shirt
+B1,,Polo Ralph Lauren,,Men,Formal,,Top,Polo,Dark,Navy Blue,,Cotton,Stripes,Custom Fit Stretch Oxford Shirt

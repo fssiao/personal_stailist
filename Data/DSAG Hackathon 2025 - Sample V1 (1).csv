@@ -1,0 +1,55 @@
+user_id,clothing_id,brand_name,age,gender,occassion,weather,category,subcategory,color,subcolor,purchase_date,material,pattern,product_display_name
+G5,1,Zara,,Unisex,Casual,Unspecified,Bottom,Denim Pants,Dark,Blue,2024-03-02,Denim,Plain,
+G5,2,Uniqlo,,Unisex,Casual,Unspecified,Bottom,Denim Pants,Light,Blue,2023-01-04,Denim,Plain,
+G5,3,Lululemon,,Women,Casual,Unspecified,Bottom,Cargo Pants,Dark,Green,2023-01-04,Nylon,Plain,Lululemon Dance Studio Relaxed-Fit Mid-Rise Cargo Pant
+G5,4,Love Bonito,,Women,Formal,Unspecified,Bottom,Work Pants,Dark,Black,2023-01-04,Polyester,Plain,Love Bonito PETITE Leggy™ Moira Super High Waist Straight Leg Pants
+G5,5,Ever New,,Women,Casual,Summer,Top,Dress,Light,White,2024-10-25,Eyelet,Floral,
+G5,6,Nike,,Women,Casual,Summer,Top,Tshirts,Dark,Blue,2025-02-10,Polyester,Plain,Nike Women Blue Polo T-shirt
+G5,7,Vans,,Unisex,Casual,Unspecified,Footwear,Casual Shoes,Dark,Black,2025-02-10,Canvas,Plain,Vans Unisex Black & Grey Classic Shoes
+B1,8,Adidas,,Men,Casual,Unspecified,Top,Tshirts,Light,Grey,2025-02-10,Nylon,Plain,ADIDAS Men Grey Striped T-shirt
+B1,9,Clarks,,Men,Formal,Unspecified,Footwear,Leather,Dark,Black,2024-06-19,Leather,Plain,Clarks Men Hang Work Leather Black Formal Shoes
+B1,10,Zara,,Men,Casual,Unspecified,Top,Polo Shirts,Light,Beige,2025-04-06,Cotton,Plain,Zara Men Regular fit knitted polo shirt made of a cotton blend yarn. Lapel collar with front button fastening. Short sleeves. Ribbed trims.
+B1,11,Zara,,Men,Formal,Unspecified,Top,Blazer,Dark,Black,2024-12-08, ,Plain,Zara Men Relaxed fit blazer in a lightly waxed cotton fabric.
+B1,12,Zara,,Men,Formal,Unspecified,Bottom,Work Pants,Dark,Black,2024-12-18,Linen,Plain,Zara Men100% LINEN PLEATED TROUSERS
+B1,13,Zara,,Men,Casual,Unspecified,Bottom,Shorts,Light,Light beige,2024-12-08,Linen,Plain,Zara Men 100% LINEN BERMUDA SHORTS
+G5,14,Uniqlo,,Men,Casual,Unspecified,Top,Tshirts,Light,White,2024-12-08,Cotton,Plain,
+G5,15,Uniqlo,,Men,Casual,Unspecified,Top,Polo,Dark,Blue,2024-12-18,Cotton,Stripes,
+B1,16,Lacoste,,Men,Formal,Unspecified,Top,Polo,Light,White,2025-01-20,Cotton,Plain,Lacoste Slim Fit Petit Piqué Polo
+B1,17,Tom Ford,,Men,Casual,Unspecified,Bottom,Pants,Light,Blue,2024-12-18,Denim,,TOM FORD's jeans are expertly made from premium denim in a medium blue wash
+B1,18,Polo Ralph Lauren,,Men,Formal,Unspecified,Top,Polo,Light,Blue,2024-12-18,Cotton,Plain,Custom Fit Stretch Oxford Shirt
+B1,19,Polo Ralph Lauren,,Men,Formal,Unspecified,Top,Polo,Light,Pink,2025-01-23,Cotton,Plain,Custom Fit Stretch Oxford Shirt
+B1,20,Polo Ralph Lauren,,Men,Formal,Unspecified,Top,Polo,Dark,Navy Blue,2024-12-18,Cotton,Stripes,Custom Fit Stretch Oxford Shirt
+B1,21,Zara,,Women,Formal,Unspecified,Top,Dress,Light,Pink,2024-12-18,Knitted,Floral,Knit Dress With Box Pleats
+B1,22,H&M,,Women,Casual,Unspecified,Bottom,Shorts,Dark,Black,2022-04-04,Cotton,Plain,Dobby-Weave Shorts
+G5,23,H&M,,Women,Casual,Unspecified,Footwear,Flat Shoes,Dark,Red,2024-12-18,Cotton,Plain,Braided Flats
+G5,24,Nike,,Men,Casual,Unspecified,Footwear,Rubber shoes,Light,White,2024-12-18,Rubber,,Nike Air Jordan Shoes
+B1,25,Vivaia,,Women,Formal,Unspecified,Footwear,Heels,Dark,Black,2024-12-18,Leather,Plain,
+B1,26,Charles & Keith,,Women,Formal,Unspecified,Footwear,Stilettos,Dark,Black,2022-04-18,Leather,Plain,
+B1,27,Vivaia,,Women,Formal,Unspecified,Footwear,Pumps,Light,Brown,2024-03-02,Leather,Plain,
+B1,28,Uniqlo,,Men,Formal,Unspecified,Bottom,Slacks,Light,Brown,2024-03-02,Cotton,Plain,
+B1,29,Cole Haan,,Men,Formal,Unspecified,Footwear,Leather shoes,Dark,Brown,2024-12-18,Leather,Plain,
+G1,30,Zara,,Women,Formal,Unspecified,Bottom,Work Pants,Dark,Black,2024-03-02,Cotton,Plain,Ankle-length slacks in woven stretch fabric
+G1,31,H&M,,Women,Formal,Unspecified,Top,Blouse,Light,White,2024-12-18,Cotton,Plain,H&M Tie Detail top
+G5,32,Coach,,Women,Formal,Unspecified,Bag,Hand bag,Dark,Brown,2024-12-18,Leather,Plain,
+G5,33,Kate Spade,,Women,Casual,Unspecified,Bag,Crossbody bag,Light,Pink,2024-12-18,Nylon,Plain,
+B1,34,Pandora,,Women,Formal,Unspecified,Accessories,Bracelet,Light,Gold,2024-10-16,,,
+G1,35,CLN,,Women,Formal,Unspecified,Bag,Clutches,,Cream,2024-10-16,Leather,Plain,
+G1,36,Kate Spade,,Women,Formal,Unspecified,Bag,Shoulder bag,,Black,2024-12-18,Leather,Plain,
+G1,37,Uniqlo,,Unisex,Casual,Unspecified,Top,Polo,,Black,2024-12-18,Cotton ,Plan,Uniqlo Cotton Pointelle Short Sleeve Polo
+G1,38,Uniqlo,,Women,Formal,Unspecified,Top,Long Sleeves,Light,Beige,2024-12-18,Satin,Plain ,Uniqlo Satin Long Sleeves
+G1,39,Uniqlo,,Women,Formal,Unspecified,Top,Long Sleeves,Dark,Black,2024-10-16,Satin,Plain ,Uniqlo Satin Long Sleeves
+G1,40,Uniqlo,,Women,Casual,Unspecified,Top,Blouse,Light,Olive,2024-12-18,Linen,Plain ,Uniqlo Linen 3/4 Sleeves
+G1,41,Uniqlo,,Women,Smart Casual,Unspecified,Top,Blouse,Light,White,2024-12-18,Linen,Stripes,Uniqlo Premium Linen Long Sleeves
+G1,42,Uniqlo,,Unisex,Smart Casual,Unspecified,Top,Long Sleeves,Light,Blue,2024-12-18,,Plain,Uniqlo Broadcloth Oversized Long Sleeves
+G1,43,Uniqlo,,Women,Casual,Unspecified,Bottom,Skirt,Dark ,Black,2024-12-08,Wool,Plain ,Uniqlo Pleated Skort
+G1,44,Uniqlo,,Women,Casual,Unspecified,Bottom,Jeans,Light,Blue,2024-12-08,Denim,Plain ,Uniqlo Wide Trouser Jeans
+G1,45,Uniqlo,,Women,Smart Casual,Unspecified,Bottom,Pants,Light,Grey,2024-12-08,,Plain ,Uniqlo Pleated Wide Pants
+G1,46,Uniqlo,,Women,Formal,Unspecified,Bottom,Pants,Dark,Grey,2024-12-08,Rayon,Plain ,Uniqlo Smart Ankle Pants
+G1,47,Mango,,Women,Formal ,Unspecified,Top,Jacket,Light,Pink,2024-12-08,Linen,Plain ,Mango Linen Suit Jacket
+G1,48,Mango,,Women,Formal ,Unspecified,Top ,Blazer,Light,White,2025-04-06,,Plain ,Mango Straight Button Suit Blazer
+G1,49,Mango,,Women,Formal ,Unspecified,Top ,Blazer,Light,Brown,2025-04-06,Linen,Plain,Mango Linen-blend Cropped Jacket
+G1,50,Mango,,Women,Casual,Unspecified,Top ,Blouse,Light,Green,2025-04-06,,Plain,Mango Combined Blouse with Bow Detail
+G1,51,Mango,,Women,Casual,Unspecified,Top,Blouse,Light,White,2025-02-10,Cotton,Printed,Mango Printed Cotton Shirt with Short Sleeves
+G1,52,Mango,,Women,Casual ,Unspecified,Top,Shirt,Dark,Grey,2025-02-10,Denim,Plain,Mango Rinse-washed Denim Shirt
+B1,53,Rolex,,Men,Formal,Unspecified,Accessories,Watch,Light,Whitegold,2024-10-16,Steel,,Rolex Daytona
+B1,54,Cartier,,Women,Formal,Unspecified,Accessories,Watch,Light,Rosegold,2024-10-16,Leather,,Cartier Tank
