@@ -75,8 +75,7 @@ data = {
     "request": [
         "What can men wear for a date?",
         "Give me office or professional attires for women.",
-        "Give me any combination with a dress."
-
+        "Give me any combination with a dress.",
     ],
     "expected_facts": [
         [

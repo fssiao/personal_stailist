@@ -14,12 +14,10 @@
 from databricks.sdk import WorkspaceClient
 from unitycatalog.ai.core.databricks import DatabricksFunctionClient
 from IPython.display import display, HTML
-from datetime import datetime
 
 import yaml
 import os
 import pandas as pd
-import itertools
 
 # COMMAND ----------
 
